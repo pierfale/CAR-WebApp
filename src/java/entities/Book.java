@@ -5,6 +5,7 @@
  */
 package entities;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -13,7 +14,8 @@ import javax.persistence.*;
  */
 
 @Entity
-public class Book {
+@Table(name="BOOKS")
+public class Book implements Serializable {
     
     private String title;
     private String author;
@@ -28,7 +30,7 @@ public class Book {
     }
     
     @Id
-    @Column(name="BOOK_ID")
+    @Column(name="TITLE")
     public String getTitle() {
         return this.title;
     }

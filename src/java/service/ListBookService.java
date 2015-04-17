@@ -24,7 +24,6 @@ public class ListBookService implements Serializable {
     private EntityManager entityManager;
     
     public List<Book> getAll() {
-        System.err.println("list->"+entityManager);
         Query query = entityManager.createQuery("SELECT b FROM Book b");
         return query.getResultList();
     }

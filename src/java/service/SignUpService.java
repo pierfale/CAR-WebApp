@@ -5,8 +5,7 @@
  */
 package service;
 
-import entities.Book;
-import java.io.Serializable;
+import entities.User;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,15 +14,14 @@ import javax.persistence.PersistenceContext;
  *
  * @author Pierre
  */
-@Stateless
-public class AddBookService implements Serializable {
 
+@Stateless
+public class SignUpService {
+    
     @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
     
-    public void add(Book book) {
-        entityManager.persist(book);
+    public void create(User user) {
+        entityManager.persist(user);
     }
-
-    
 }
