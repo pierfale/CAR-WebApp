@@ -4,18 +4,22 @@
     Author     : Pierre
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <form method="POST" action="SignUp">
-            Login : <input name="username" />
-            Passwortd : <input type="password" name="password" />
-            <input type="submit" />
-        </form>
-    </body>
-</html>
+<%@include file="Header.jsp" %>
+
+<h1>Sign Up</h1>
+
+<%
+    String message = (String)request.getAttribute("message");
+    
+    if(message != null) {
+        out.println(message+"<br />");
+    }
+%>
+
+<form method="POST" action="SignUp">
+    Login : <input name="username" /> <br />
+    Password : <input type="password" name="password" /> <br />
+    <input type="submit" />
+</form>
+
+<%@include file="Footer.jsp" %>

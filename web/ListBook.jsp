@@ -7,6 +7,8 @@
 <%@page import="java.util.List"%>
 <%@page import="entities.Book"%>
 
+<%@include file="Header.jsp" %>
+
 <h1>Book List</h1>
         
 <%
@@ -20,3 +22,5 @@
         }
     }
 %>
+
+<%@include file="Footer.jsp" %>

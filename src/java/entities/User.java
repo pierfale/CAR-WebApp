@@ -35,8 +35,14 @@ public class User implements Serializable {
     }
     
     public User(String username, String password) throws UnableToCreateUserException {
-        this.setUsername(username);
-        this.setPassword(password);
+        try {
+            this.username = username;
+            this.password = hash(password);
+        } catch (UnsupportedEncodingException ex) {
+            throw new UnableToCreateUserException("Unsupported Encoding");
+        } catch (NoSuchAlgorithmException ex) {
+           throw new UnableToCreateUserException("Unsupported Hash");
+        }
     }
     
     @Id
@@ -54,14 +60,8 @@ public class User implements Serializable {
         return this.password;
     } 
     
-    public void setPassword(String password) throws UnableToCreateUserException {
-        try {
-            this.password = hash(password);
-        } catch (UnsupportedEncodingException ex) {
-            throw new UnableToCreateUserException("Unsupported Encoding");
-        } catch (NoSuchAlgorithmException ex) {
-           throw new UnableToCreateUserException("Unsupported Hash");
-        }
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     @OneToMany

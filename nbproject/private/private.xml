@@ -3,15 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/web/index.html</file>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/src/java/entities/Book.java</file>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/src/java/service/AddBookService.java</file>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/src/java/service/ListBookService.java</file>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/src/java/servlet/ListBook.java</file>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/web/AddBook.jsp</file>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/src/java/servlet/AddBook.java</file>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/src/conf/MANIFEST.MF</file>
-            <file>file:/C:/Users/Pierre/Documents/NetBeansProjects/BookSell/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/AddBookService.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/exception/UnableToLoginException.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Login.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Header.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/entities/User.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/SignUp.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/entities/Book.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Footer.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/AddBook.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/SignUpService.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/WEB-INF/beans.xml</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/index.html</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/ListBook.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/ListBookService.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/AddBook.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/ListBook.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/Login.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/SignUp.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/exception/UnableToCreateUserException.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/LoginService.java</file>
         </group>
     </open-files>
 </project-private>

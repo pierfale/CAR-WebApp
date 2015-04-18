@@ -27,6 +27,8 @@ public class LoginService implements Serializable {
     
     private User user;
     
+    public static final String LOGIN_SESION_KEY = "user";
+    
     public User getUser() {
         return this.user;
     }
@@ -45,6 +47,7 @@ public class LoginService implements Serializable {
         if(!user.checkPassword(password))
             throw new UnableToLoginException("Inccorect password");
         
+        System.out.println("user="+user);
         this.user = user;
     }
     

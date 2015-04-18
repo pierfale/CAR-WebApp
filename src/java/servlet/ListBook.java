@@ -24,9 +24,6 @@ public class ListBook extends HttpServlet {
     
     @EJB
     private ListBookService  listBookService;
-    
-    @EJB
-    private LoginService  loginService;
 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -43,13 +40,13 @@ public class ListBook extends HttpServlet {
             throws ServletException, IOException {
         
         request.setAttribute("title", "Book List");
-        request.setAttribute("user", loginService.getUser());
+        
+        LoginService login = (LoginService)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY);
+        request.setAttribute("user", login != null ? login.getUser() : null);
         
         request.setAttribute("bookList", listBookService.getAll());
         
-        this.getServletContext().getRequestDispatcher("/Header.jsp").forward(request, response);
         this.getServletContext().getRequestDispatcher("/ListBook.jsp").forward(request, response);
-        this.getServletContext().getRequestDispatcher("/Footer.jsp").forward(request, response);
     }
 
 

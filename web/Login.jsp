@@ -6,6 +6,8 @@
 
 <%@include file="Header.jsp" %>
 
+<h1>Login</h1>
+
 <%
     String message = (String)request.getAttribute("message");
     
@@ -15,8 +17,8 @@
 %>
 
 <form method="POST" action="Login">
-    <input name="username" />
-    <input type="password" name="password" />
+    Username : <input name="username" /><br />
+    Password : <input type="password" name="password" /><br />
     <input type="submit" />
 </form>
 

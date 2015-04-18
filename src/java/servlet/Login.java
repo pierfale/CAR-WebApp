@@ -24,7 +24,7 @@ import service.LoginService;
 public class Login extends HttpServlet {
     
     @EJB
-    private LoginService  loginService;
+    private LoginService loginService;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(loginService.getUser() != null) {
@@ -71,8 +71,9 @@ public class Login extends HttpServlet {
 
             if(username != null && password != null) {
                 try {
-                    loginService.login(request.getParameter("username"), request.getParameter("password"));
-                    response.sendRedirect("/ListBook");
+                    loginService.login(username, password);
+                    getServletContext().setAttribute(loginService.LOGIN_SESION_KEY, loginService);
+                    response.sendRedirect("ListBook");
                 }
                 catch(UnableToLoginException e) {
                     request.setAttribute("message", e.getMessage());
