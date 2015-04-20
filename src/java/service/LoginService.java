@@ -9,6 +9,7 @@ import entities.User;
 import exception.UnableToLoginException;
 import java.io.Serializable;
 import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -19,19 +20,13 @@ import javax.persistence.Query;
  * @author Pierre
  */
 
-@Stateful
+@Stateless
 public class LoginService implements Serializable {
     
     @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
     
-    private User user;
-    
     public static final String LOGIN_SESION_KEY = "user";
-    
-    public User getUser() {
-        return this.user;
-    }
     
     public void login(String username, String password) throws UnableToLoginException {
         Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username");
@@ -48,11 +43,10 @@ public class LoginService implements Serializable {
             throw new UnableToLoginException("Inccorect password");
         
         System.out.println("user="+user);
-        this.user = user;
     }
     
-    public void logout() {
-        this.user = null;
+    public User get(String username) {
+        return username != null ? entityManager.find(User.class, username) : null;
     }
     
 }

@@ -64,9 +64,9 @@ public class SignUp extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        if(username != null && password != null) {
+        if(username != null && !username.equals("") && password != null && !password.equals("")) {
             try {
-                signUpService.create(new User(username, password));
+                signUpService.create(new User(username, password, User.Rank.USER));
                 request.setAttribute("message", "Sign Up success ! please login now");
                 response.sendRedirect("Login");
             }

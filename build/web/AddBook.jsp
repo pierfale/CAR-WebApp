@@ -4,19 +4,10 @@
     Author     : Pierre
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <form method="POST" action="AddBook">
-            <input name="title" />
-            <input name="author" />
-            <input type="submit" />
-        </form>
 
-    </body>
-</html>
+<form method="POST" action="AddBook">
+    Title : <input name="title" /><br />
+    Author : <input name="author" /><br />
+    Price : <input name="price" /><br />
+    <input type="submit" /><br />
+</form>

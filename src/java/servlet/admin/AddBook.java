@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet;
+package servlet.admin;
 
 import entities.Book;
+import entities.User;
+import exception.UnableToLoginException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.AddBookService;
 import service.ListBookService;
+import service.LoginService;
 
 /**
  *
@@ -26,6 +29,9 @@ public class AddBook extends HttpServlet {
     
     @EJB
     private AddBookService  addBookService;
+    
+    @EJB
+    private LoginService loginService;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,18 +44,15 @@ public class AddBook extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AddBook</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AddBook at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        request.setAttribute("title", "Book List");
+        
+        User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
+        
+        if(user == null || user.getRank() != User.Rank.ADMIN)
+            response.sendRedirect("error/UnauthorizedAccess.jsp");
+        else {
+            request.setAttribute("user", user);
+            this.getServletContext().getRequestDispatcher("/AddBook.jsp").forward(request, response);
         }
     }
 
@@ -79,18 +82,16 @@ public class AddBook extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        addBookService.add(new Book(request.getParameter("title"), request.getParameter("author")));
-        response.sendRedirect("AddBook.jsp");
-    }
+        
+        String title = request.getParameter("title");
+        String author = request.getParameter("author");
+        String price = request.getParameter("price");
+        if(title != null && author != null && price != null) {
+            addBookService.add(new Book(title, author, Float.parseFloat(price)));
+        } 
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        processRequest(request, response);
+
+    }
 
 }

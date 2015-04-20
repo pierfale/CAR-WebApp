@@ -7,48 +7,48 @@ package servlet;
 
 import entities.User;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import service.ListBookService;
+import service.CartService;
 import service.LoginService;
 
 /**
  *
  * @author Pierre
  */
-@WebServlet(name = "ListBook", urlPatterns = {"/ListBook"})
-public class ListBook extends HttpServlet {
-    
+@WebServlet(name = "RemoveCart", urlPatterns = {"/RemoveCart"})
+public class RemoveCart extends HttpServlet {
+
     @EJB
-    private ListBookService  listBookService;
-    
+    private CartService  cartService;
+      
     @EJB
     private LoginService loginService;
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("title", "Book List");
-
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
-        request.setAttribute("user", user);
+        String title = request.getParameter("title");
         
-        String search = request.getParameter("search");
-        
-        if(search != null && !search.equals("")) {
-            request.setAttribute("search", search);
-            request.setAttribute("listBook", listBookService.search(search));
+        if(user != null && title != null) {
+            cartService.removeBook(user.getUsername(), title);
         }
-        else {
-            request.setAttribute("search", "");
-            request.setAttribute("listBook", listBookService.getAll());
-        }
-        
-        this.getServletContext().getRequestDispatcher("/ListBook.jsp").forward(request, response);
+        response.sendRedirect("ListCart");
     }
-        
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -63,13 +63,14 @@ public class ListBook extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    
+
     /**
+     * Handles the HTTP <code>POST</code> method.
      *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -77,5 +78,14 @@ public class ListBook extends HttpServlet {
         processRequest(request, response);
     }
 
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }

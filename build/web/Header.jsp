@@ -17,14 +17,26 @@
             <h1>Book Sell</h1>
         </header>
         
+
         <%
            User user = (User)request.getAttribute("user");
            
            if(user != null) {
-               out.println("Welcome "+user.getUsername()+"<br />");
+               out.println("Welcome "+user.getUsername()+" | <a href=\"Logout\">Logout</a>");
+               if(user.getRank() == User.Rank.ADMIN)
+                   out.println(" (<a href=\"AddBook\">Admin panel</a>)<br />");
+               else
+                   out.println("<br />"); 
+               
+               out.println("<a href=\"ListCart\">Cart ("+user.getCart().size()+" item(s))</a><br />");
            }
            else {
                out.println("<a href=\"Login\">Login</a> | <a href=\"SignUp\">SignUp</a><br />");
            }
               
         %>   
+        
+        <nav>
+            <a href="ListBook">List of book</a>
+        </nav>
+        

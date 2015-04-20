@@ -6,6 +6,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.*;
 
 /**
@@ -19,14 +20,18 @@ public class Book implements Serializable {
     
     private String title;
     private String author;
+    private float price;
+    private Collection<User> cartsContainer;
+
     
     public Book() {
         
     }
     
-    public Book(String title, String author) {
+    public Book(String title, String author, float price) {
         this.title = title;
         this.author = author;
+        this.price = price;
     }
     
     @Id
@@ -46,5 +51,27 @@ public class Book implements Serializable {
     
     public void setAuthor(String author) {
         this.author = author;
+    }
+    
+    @Column(name="PRICE")
+    public float getPrice() {
+        return this.price;
+    }
+    
+    public void setPrice(float price) {
+        this.price = price;
+    }
+    
+    @ManyToMany(mappedBy = "cart")
+    public Collection<User> getCartsContainer() {
+        return this.cartsContainer;
+    }
+    
+    public void setCartsContainer(Collection<User> cartsContainer) {
+        this.cartsContainer = cartsContainer;
+    }
+    
+    public void addCartContainer(User user) {
+        this.cartsContainer.add(user);
     }
 }

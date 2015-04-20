@@ -15,6 +15,7 @@ import java.util.Formatter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,19 +26,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name="USERS")
 public class User implements Serializable {
+    public enum Rank {
+        USER,
+        ADMIN
+    }
     
+
     private String username;
     private String password;
+    private Rank rank;
     private Collection<Book> cart;
     
     public User() {
 
     }
     
-    public User(String username, String password) throws UnableToCreateUserException {
+    public User(String username, String password, Rank rank) throws UnableToCreateUserException {
         try {
             this.username = username;
             this.password = hash(password);
+            this.rank = rank;
         } catch (UnsupportedEncodingException ex) {
             throw new UnableToCreateUserException("Unsupported Encoding");
         } catch (NoSuchAlgorithmException ex) {
@@ -64,7 +72,16 @@ public class User implements Serializable {
         this.password = password;
     }
     
-    @OneToMany
+    @Column(name="RANK")
+    public Rank getRank() {
+        return this.rank;
+    }
+    
+    public void setRank(Rank rank) {
+        this.rank = rank;
+    }
+        
+    @ManyToMany
     public Collection<Book> getCart() {
         return this.cart;
     }
@@ -73,8 +90,14 @@ public class User implements Serializable {
         this.cart = cart;
     }
     
-
+    public void addBookToCart(Book book) {
+        this.cart.add(book);
+    }
     
+    public void removeBookToCart(Book book) {
+        this.cart.remove(book);
+    }
+
     private String hash(String str) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         MessageDigest crypt = MessageDigest.getInstance("SHA-1");
         crypt.reset();

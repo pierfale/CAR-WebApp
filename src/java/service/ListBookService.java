@@ -28,4 +28,16 @@ public class ListBookService implements Serializable {
         return query.getResultList();
     }
     
+    public List<Book> search(String name) {
+        Query query = entityManager.createQuery("SELECT b FROM Book b WHERE lower(b.title) LIKE :pattern");
+        query.setParameter("pattern", "%"+name.toLowerCase()+"%");
+        return query.getResultList();
+    }
+    
+    public Book get(String name) {
+        Query query = entityManager.createQuery("SELECT b FROM Book b WHERE b.title = :name");
+        query.setParameter("name", name);
+        return (Book)query.getSingleResult();  
+    }
+    
 }

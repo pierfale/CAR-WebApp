@@ -6,19 +6,22 @@
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/AddBookService.java</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/exception/UnableToLoginException.java</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Login.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/index.jsp</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Header.jsp</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/entities/User.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/admin/AddBook.java</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/SignUp.jsp</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/entities/Book.java</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Footer.jsp</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/AddBook.jsp</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/SignUpService.java</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/WEB-INF/beans.xml</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/index.html</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/ListBook.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/error/UnauthorizedAccess.jsp</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/ListBookService.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/AddBook.java</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/ListBook.java</file>
+            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/setup/glassfish-resources.xml</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/Login.java</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/SignUp.java</file>
             <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/exception/UnableToCreateUserException.java</file>

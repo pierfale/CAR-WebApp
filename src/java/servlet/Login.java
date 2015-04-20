@@ -27,13 +27,13 @@ public class Login extends HttpServlet {
     private LoginService loginService;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(loginService.getUser() != null) {
+        if(getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY) != null) {
             this.getServletContext().getRequestDispatcher("/error/UnauthorizedAccess.jsp").forward(request, response);
         }
         else {
                     
             request.setAttribute("title", "Login");
-            request.setAttribute("user", loginService.getUser());
+            request.setAttribute("user", null);
 
             this.getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         }
@@ -69,10 +69,10 @@ public class Login extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
-            if(username != null && password != null) {
+            if(username != null && !username.equals("") && password != null && !password.equals("")) {
                 try {
                     loginService.login(username, password);
-                    getServletContext().setAttribute(loginService.LOGIN_SESION_KEY, loginService);
+                    getServletContext().setAttribute(loginService.LOGIN_SESION_KEY, username);
                     response.sendRedirect("ListBook");
                 }
                 catch(UnableToLoginException e) {
