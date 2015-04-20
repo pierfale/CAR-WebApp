@@ -25,7 +25,7 @@
         out.println("<table>");
         out.println("<tr><th>Title</th><th>Author</th><th>Price</th><th>Action</th></tr>");
         for(Book book : listBook) {
-            out.println("<tr><td>"+book.getTitle()+"</td><td>"+book.getAuthor()+"</td><td>"+String.format("%.2f", book.getPrice())+"</td><td>");
+            out.println("<tr><td>"+book.getTitle()+"</td><td>"+book.getAuthor()+"</td><td>"+String.format("%.2f", book.getPrice())+"§</td><td>");
             if(user != null)
                 out.println("<a href=\"AddCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Add to cart</a>");
             out.println("</td></tr>");

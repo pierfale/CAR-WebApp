@@ -35,7 +35,7 @@
                 out.println("<li><h3>"+book.getAuthor()+"</h3><br /><ul>");
                 currentAuthor = book.getAuthor();
             }
-            out.println("<li>"+book.getTitle()+" : "+String.format("%.2f", book.getPrice())+"</li>");
+            out.println("<li>"+book.getTitle()+" : "+String.format("%.2f", book.getPrice())+"§</li>");
             if(user != null)
                 out.println("<a href=\"AddCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Add to cart</a>");
         }

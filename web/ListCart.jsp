@@ -28,11 +28,11 @@
         out.println("<table>");
         out.println("<tr><th>Title</th><th>Price</th><th>Action</th></tr>");
         for(Book book : listBook) {
-            out.println("<tr><td>"+book.getTitle()+"</td><td>"+book.getPrice()+"</td><td> <a href=\"RemoveCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Remove</a></td></tr>");
+            out.println("<tr><td>"+book.getTitle()+"</td><td>"+String.format("%.2f", book.getPrice())+"§</td><td> <a href=\"RemoveCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Remove</a></td></tr>");
             total += book.getPrice();
         }
         out.println("</table>");
-        out.println("Total price : "+total+"<br />");
+        out.println("Total price : "+String.format("%.2f", total)+"§<br />");
         out.println("<a href=\"Order\">Validate</a>");
     }
 %>

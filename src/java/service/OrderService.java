@@ -11,9 +11,11 @@ import entities.User;
 import exception.UnableToOrderException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -36,5 +38,11 @@ public class OrderService implements Serializable {
         }
         else 
             throw new UnableToOrderException("User not found");
+    }
+    
+    public List<Order> getPrevious(String username) {
+        Query query = entityManager.createQuery("SELECT o FROM Order o WHERE o.user.username = :user");
+        query.setParameter("user", username);
+        return query.getResultList();
     }
 }
