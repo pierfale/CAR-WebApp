@@ -36,6 +36,7 @@ public class User implements Serializable {
     private String password;
     private Rank rank;
     private Collection<Book> cart;
+    private Collection<Order> orders;
     
     public User() {
 
@@ -90,12 +91,25 @@ public class User implements Serializable {
         this.cart = cart;
     }
     
+    @OneToMany(mappedBy="user")
+    public Collection<Order> getOrders() {
+        return this.orders;
+    }
+    
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
+    }
+    
     public void addBookToCart(Book book) {
         this.cart.add(book);
     }
     
     public void removeBookToCart(Book book) {
         this.cart.remove(book);
+    }
+    
+    public void clearCart() {
+        this.cart.clear();
     }
 
     private String hash(String str) throws UnsupportedEncodingException, NoSuchAlgorithmException {
@@ -115,7 +129,6 @@ public class User implements Serializable {
 
     public boolean checkPassword(String password) {
         try {
-            System.out.println(password+" > "+hash(password)+" - "+this.password+" ("+this.username+")");
             return hash(password).equals(this.password);
         } catch (UnsupportedEncodingException ex) {
             return false;

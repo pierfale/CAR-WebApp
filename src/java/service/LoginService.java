@@ -41,8 +41,6 @@ public class LoginService implements Serializable {
         
         if(!user.checkPassword(password))
             throw new UnableToLoginException("Inccorect password");
-        
-        System.out.println("user="+user);
     }
     
     public User get(String username) {

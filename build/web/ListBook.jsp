@@ -22,12 +22,15 @@
         out.println("No book found.<br />");
     }
     else {
+        out.println("<table>");
+        out.println("<tr><th>Title</th><th>Author</th><th>Price</th><th>Action</th></tr>");
         for(Book book : listBook) {
-            out.println(book.getTitle()+" "+String.format("%.2f", book.getPrice()));
+            out.println("<tr><td>"+book.getTitle()+"</td><td>"+book.getAuthor()+"</td><td>"+String.format("%.2f", book.getPrice())+"</td><td>");
             if(user != null)
-            out.println("<a href=\"AddCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Add to cart</a>");
-            out.println("<br />");
+                out.println("<a href=\"AddCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Add to cart</a>");
+            out.println("</td></tr>");
         }
+        out.println("</table>");
     }
 %>
 

@@ -18,3 +18,9 @@ INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE)
 	VALUES ('Modern C++ Design: Generic Programming and Design Patterns Applied', 'Andrei Alexandrescu', 38.24);
 INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE) 
 	VALUES ('Game Engine Architecture, Second Edition', 'Jason Gregory', 67.58);
+INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE) 
+	VALUES ('The Lord of the Rings: The Fellowship of the Ring', 'J. R. R. Tolkien', 6.8);
+INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE) 
+	VALUES ('he Lord of the Rings: The Two Towers', 'J. R. R. Tolkien', 8.2);
+INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE) 
+	VALUES ('The Lord of the Rings: The Return of the King', 'J. R. R. Tolkien', 6.8);

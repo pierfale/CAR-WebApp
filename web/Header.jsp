@@ -38,5 +38,6 @@
         
         <nav>
             <a href="ListBook">List of book</a>
+            <a href="ListAuthor">List of Author</a>
         </nav>
         

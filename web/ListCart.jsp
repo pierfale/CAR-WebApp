@@ -11,20 +11,29 @@
 <%@include file="Header.jsp" %>
 
 <h1>Book Cart</h1>
-        
+
 <%
+    String message = (String)request.getAttribute("message");
+    
+    if(message != null) {
+        out.println(message+"<br />");
+    }
+
     Collection<Book> listBook = (Collection<Book>)request.getAttribute("cart");
     if(listBook == null || listBook.size() == 0) {
         out.println("No item in the cart.<br />");
     }
     else {
         float total = 0.0f;
+        out.println("<table>");
+        out.println("<tr><th>Title</th><th>Price</th><th>Action</th></tr>");
         for(Book book : listBook) {
-            out.println(book.getTitle()+" <a href=\"RemoveCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Remove</a>");
-            out.println("<br />");
+            out.println("<tr><td>"+book.getTitle()+"</td><td>"+book.getPrice()+"</td><td> <a href=\"RemoveCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Remove</a></td></tr>");
             total += book.getPrice();
         }
+        out.println("</table>");
         out.println("Total price : "+total+"<br />");
+        out.println("<a href=\"Order\">Validate</a>");
     }
 %>
 

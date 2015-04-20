@@ -23,8 +23,8 @@ public class ListBookService implements Serializable {
     @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
     
-    public List<Book> getAll() {
-        Query query = entityManager.createQuery("SELECT b FROM Book b");
+    public List<Book> getByTitle() {
+        Query query = entityManager.createQuery("SELECT b FROM Book b ORDER BY b.title");
         return query.getResultList();
     }
     
@@ -38,6 +38,11 @@ public class ListBookService implements Serializable {
         Query query = entityManager.createQuery("SELECT b FROM Book b WHERE b.title = :name");
         query.setParameter("name", name);
         return (Book)query.getSingleResult();  
+    }
+    
+    public List<Book> getByAuthor() {
+        Query query = entityManager.createQuery("SELECT b FROM Book b ORDER BY b.author");
+        return query.getResultList();
     }
     
 }

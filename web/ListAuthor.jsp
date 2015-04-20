@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ListBook
-    Created on : 17 avr. 2015, 17:37:39
+    Document   : ListAuthor
+    Created on : 20 avr. 2015, 19:22:12
     Author     : Pierre
 --%>
 
@@ -22,15 +22,25 @@
         out.println("No book found.<br />");
     }
     else {
-        out.println("<table>");
-        out.println("<tr><th>Title</th><th>Author</th><th>Price</th><th>Action</th></tr>");
+        
+        String currentAuthor = "";
+        
+        out.println("<ul>");
         for(Book book : listBook) {
-            out.println("<tr><td>"+book.getTitle()+"</td><td>"+book.getAuthor()+"</td><td>"+String.format("%.2f", book.getPrice())+"</td><td>");
+            
+            if(!book.getAuthor().equals(currentAuthor)) {
+                if(!currentAuthor.equals("")) {
+                    out.println("</ul></li>");
+                }
+                out.println("<li><h3>"+book.getAuthor()+"</h3><br /><ul>");
+                currentAuthor = book.getAuthor();
+            }
+            out.println("<li>"+book.getTitle()+" : "+String.format("%.2f", book.getPrice())+"</li>");
             if(user != null)
                 out.println("<a href=\"AddCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Add to cart</a>");
-            out.println("</td></tr>");
         }
-        out.println("</table>");
+        out.println("</ul></li></ul>");
+
     }
 %>
 

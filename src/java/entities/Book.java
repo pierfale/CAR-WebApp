@@ -22,7 +22,7 @@ public class Book implements Serializable {
     private String author;
     private float price;
     private Collection<User> cartsContainer;
-
+    private Collection<User> ordersContainer;
     
     public Book() {
         
@@ -71,7 +71,12 @@ public class Book implements Serializable {
         this.cartsContainer = cartsContainer;
     }
     
-    public void addCartContainer(User user) {
-        this.cartsContainer.add(user);
+    @ManyToMany(mappedBy = "cart")
+    public Collection<User> getOrdersContainer() {
+        return this.ordersContainer;
+    }
+    
+    public void setOrdersContainer(Collection<User> ordersContainer) {
+        this.ordersContainer = ordersContainer;
     }
 }
