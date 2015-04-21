@@ -27,6 +27,10 @@ public class LoginService implements Serializable {
     private EntityManager entityManager;
     
     public static final String LOGIN_SESION_KEY = "user";
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
     
     public void login(String username, String password) throws UnableToLoginException {
         Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username");

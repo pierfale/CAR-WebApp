@@ -10,7 +10,6 @@ import entities.Order;
 import entities.User;
 import exception.UnableToOrderException;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -27,6 +26,10 @@ public class OrderService implements Serializable {
     
     @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
     
     public void execute(String username, List<Book> cart) throws UnableToOrderException {
         User user = (User)entityManager.find(User.class, username);

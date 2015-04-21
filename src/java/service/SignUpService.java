@@ -20,6 +20,10 @@ public class SignUpService {
     
     @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
     
     public void create(User user) {
         entityManager.persist(user);
