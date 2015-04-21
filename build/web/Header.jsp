@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><%= request.getAttribute("title") != null ? request.getAttribute("title") : "Book sell" %></title>
+        <title><%= request.getAttribute("title") != null ? request.getAttribute("title") : "Book sell" %></title>  
     </head>
     <body>
         <header>
