@@ -23,7 +23,7 @@ Nous avons séparé notre application en différentes couches :
 
 Il y a également un package *exeception* qui regroupe les exceptions spécifique à l'application.
 
-*Liste des throw*
+**Liste des throw**
 
 service.LoginService:39, UnableToLoginException
 Exception levé lorsque le nom de l'utilisateur est introuvable.
@@ -40,7 +40,7 @@ Exception levé lorsque qu'il y a un problème d'encodage des caracteres
 entity.User:52, UnableToCreateUserException
 Exception levé lorsque qu'il y a un problème avec l'encryptage du mot de passe
 
-*Liste des try/catch*
+**Liste des try/catch**
 
 servlet.AbstractSessionServlet:38, NamingException
 Vérifie la récupération de l'EJB via lookup
