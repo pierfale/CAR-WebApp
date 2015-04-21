@@ -13,7 +13,9 @@ Cette application propose diverse fonctionnalitées :
 * Gestion de panier
 * Recherche de livre
 * Tri par auteur
+
 ## Architecture
+
 Nous avons séparé notre application en différentes couches :
 * La premiere, contenu dans le package *entity*, contient tous les éléments destinés à être persistant. Ceux-ci sont représenté par des *Entity Bean* de la *Java Persistence API*
 * La seconde contient tout les services dans le package *service*. Chaque service est une *Session Bean* (*Stateful* ou *Stateless*) de la *Java Persistence API*
