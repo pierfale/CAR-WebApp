@@ -32,20 +32,19 @@ public class AbstractSessionServlet extends HttpServlet {
     
     public CartService getCartService() {
         CartService cartService;
-        cartService = (CartService)getServletContext().getAttribute(CART_SESSION_KEY);
-        
-        if(cartService == null) {
-            try {
-                InitialContext ic = new InitialContext();
-                cartService = (CartService)ic.lookup("java:global/BookSell/CartService");
+        cartService = (CartService)getServletContext().getAttribute(CART_SESSION_KEY); // get cart session
 
-            // put EJB in HTTP session for future servlet calls
+        if(cartService == null) {
+                try {
+                InitialContext ic = new InitialContext();
+                cartService = (CartService)ic.lookup("java:global/BookSell/CartService"); // get service
+
                 getServletContext().setAttribute(CART_SESSION_KEY, cartService);
 
-          } catch (NamingException e) {
-              return null;
-          }
-        }
+            } catch (NamingException e) {
+                return null;
+            }
+         }
         
         return cartService;
     }

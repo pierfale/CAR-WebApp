@@ -90,17 +90,17 @@ public class User implements Serializable {
     }
 
     private String hash(String str) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        MessageDigest crypt = MessageDigest.getInstance("SHA-1");
-        crypt.reset();
-        crypt.update(str.getBytes("UTF-8"));
-        Formatter formatter = new Formatter();
-        for (byte b : crypt.digest())
-        {
-            formatter.format("%02x", b);
-        }
+            MessageDigest crypt = MessageDigest.getInstance("SHA-1");
+            crypt.reset();
+            crypt.update(str.getBytes("UTF-8"));
+
+            Formatter formatter = new Formatter();
+            for (byte b : crypt.digest()) { // Transform each byte in hexa format string
+                    formatter.format("%02x", b);
+            }
         String result = formatter.toString();
         formatter.close();
-        
+
         return result;
     }
 

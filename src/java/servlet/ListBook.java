@@ -5,17 +5,13 @@
  */
 package servlet;
 
-import entities.User;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import service.CartService;
 import service.ListBookService;
-import service.LoginService;
 
 /**
  *
@@ -35,14 +31,14 @@ public class ListBook extends AbstractSessionServlet {
         initializeRequest(request);
         
         String search = request.getParameter("search");
-        
+
         if(search != null && !search.equals("")) {
-            request.setAttribute("search", search);
-            request.setAttribute("listBook", listBookService.search(search));
+                request.setAttribute("search", search);
+                request.setAttribute("listBook", listBookService.search(search)); // get list of book, which title contains search pattern
         }
         else {
-            request.setAttribute("search", "");
-            request.setAttribute("listBook", listBookService.getByTitle());
+                request.setAttribute("search", "");
+                request.setAttribute("listBook", listBookService.getByTitle()); // get all books
         }
         
         this.getServletContext().getRequestDispatcher("/ListBook.jsp").forward(request, response);

@@ -8,7 +8,6 @@ package service;
 import entities.User;
 import exception.UnableToLoginException;
 import java.io.Serializable;
-import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;

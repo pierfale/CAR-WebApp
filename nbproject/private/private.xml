@@ -3,29 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/AddBookService.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/exception/UnableToLoginException.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Login.jsp</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/index.jsp</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Header.jsp</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/entities/User.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/admin/AddBook.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/SignUp.jsp</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/entities/Book.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/Footer.jsp</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/AddBook.jsp</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/SignUpService.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/WEB-INF/beans.xml</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/ListBook.jsp</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/web/error/UnauthorizedAccess.jsp</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/ListBookService.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/ListBook.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/setup/glassfish-resources.xml</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/Login.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/servlet/SignUp.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/exception/UnableToCreateUserException.java</file>
-            <file>file:/C:/Users/Pierre/Desktop/Programmation/CAR-WebApp/src/java/service/LoginService.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/sql/books-default.sql</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/service/AddBookService.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/service/SignUpService.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/web/ListAuthor.jsp</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/web/index.jsp</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/servlet/ListBook.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/test/entities/BookTest.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/sql/users-default.sql</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/entities/Book.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/servlet/Order.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/servlet/Login.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/servlet/AbstractSessionServlet.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/test/service/OrderServiceTest.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/servlet/ListOrder.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/service/ListBookService.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/entities/User.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/service/OrderService.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/servlet/ListAuthor.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/entities/Order.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/src/java/service/LoginService.java</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/web/Footer.jsp</file>
+            <file>file:/home/gaetan/NetBeansProjects/CAR-WebApp/web/Header.jsp</file>
         </group>
     </open-files>
 </project-private>
