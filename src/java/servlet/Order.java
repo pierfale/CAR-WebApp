@@ -9,6 +9,7 @@ import entities.User;
 import exception.UnableToOrderException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,10 +24,7 @@ import service.OrderService;
  * @author Pierre
  */
 @WebServlet(name = "Order", urlPatterns = {"/Order"})
-public class Order extends HttpServlet {
-
-    @EJB
-    private LoginService loginService;
+public class Order extends AbstractSessionServlet {
     
     @EJB
     private OrderService orderService;
@@ -44,18 +42,20 @@ public class Order extends HttpServlet {
             throws ServletException, IOException {
         request.setAttribute("title", "Command");
         
-        User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
-        request.setAttribute("user", user);
+        initializeRequest(request);
+        
+        User user = getUser();
         
         if(user == null)
             this.getServletContext().getRequestDispatcher("/error/UnauthorizedAccess.jsp").forward(request, response);
         else {
             try {
-                request.setAttribute("nbBook", user.getCart().size());
-                orderService.execute(user.getUsername());
+                request.setAttribute("nbBook", getCartService().getItems().size());
+                orderService.execute(user.getUsername(), new ArrayList<>(getCartService().getItems()));
+                getCartService().getItems().clear();
                 
                 //reload user
-                request.setAttribute("user", loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY)));
+                initializeRequest(request);
                 
                  this.getServletContext().getRequestDispatcher("/Order.jsp").forward(request, response);
             }

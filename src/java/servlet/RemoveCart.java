@@ -22,13 +22,8 @@ import service.LoginService;
  * @author Pierre
  */
 @WebServlet(name = "RemoveCart", urlPatterns = {"/RemoveCart"})
-public class RemoveCart extends HttpServlet {
+public class RemoveCart extends AbstractSessionServlet {
 
-    @EJB
-    private CartService  cartService;
-      
-    @EJB
-    private LoginService loginService;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,11 +35,11 @@ public class RemoveCart extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
+        User user = getUser();
         String title = request.getParameter("title");
         
         if(user != null && title != null) {
-            cartService.removeBook(user.getUsername(), title);
+            getCartService().removeBook(title);
         }
         response.sendRedirect("ListCart");
     }

@@ -7,6 +7,7 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Objects;
 import javax.persistence.*;
 
 /**
@@ -21,8 +22,7 @@ public class Book implements Serializable {
     private String title;
     private String author;
     private float price;
-    private Collection<User> cartsContainer;
-    private Collection<User> ordersContainer;
+    private Collection<Order> ordersContainer;
     
     public Book() {
         
@@ -63,20 +63,24 @@ public class Book implements Serializable {
     }
     
     @ManyToMany(mappedBy = "cart")
-    public Collection<User> getCartsContainer() {
-        return this.cartsContainer;
-    }
-    
-    public void setCartsContainer(Collection<User> cartsContainer) {
-        this.cartsContainer = cartsContainer;
-    }
-    
-    @ManyToMany(mappedBy = "cart")
-    public Collection<User> getOrdersContainer() {
+    public Collection<Order> getOrdersContainer() {
         return this.ordersContainer;
     }
     
-    public void setOrdersContainer(Collection<User> ordersContainer) {
+    public void setOrdersContainer(Collection<Order> ordersContainer) {
         this.ordersContainer = ordersContainer;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Book && ((Book)o).getTitle().equals(this.title);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.title);
+        return hash;
+    }
+
 }

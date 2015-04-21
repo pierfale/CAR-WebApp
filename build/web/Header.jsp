@@ -28,7 +28,7 @@
                else
                    out.println("<br />"); 
                
-               out.println("<a href=\"ListCart\">Cart ("+user.getCart().size()+" item(s))</a> <a href=\"ListOrder\">Order history</a><br />");
+               out.println("<a href=\"ListCart\">Cart ("+request.getAttribute("cartSize")+" item(s))</a> <a href=\"ListOrder\">Order history</a><br />");
            }
            else {
                out.println("<a href=\"Login\">Login</a> | <a href=\"SignUp\">SignUp</a><br />");

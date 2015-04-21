@@ -9,6 +9,8 @@ import entities.Book;
 import entities.User;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,10 +20,34 @@ import javax.persistence.PersistenceContext;
  * @author Pierre
  */
 
-@Stateless
+@Stateful
 public class CartService {
     
     @PersistenceContext(unitName="BookSellPU")
+    private EntityManager entityManager;
+    private List<Book> cart = new ArrayList<Book>();
+    
+    public void addBook(String bookTitle) {
+        Book book =(Book) entityManager.find(Book.class, bookTitle);
+        
+        if(book != null && !cart.contains(book)) {
+            cart.add(book);
+        }
+    }
+    
+    public Collection<Book> getItems() {
+        return cart;
+    }
+
+    public void removeBook(String bookTitle) {
+        Book book =(Book) entityManager.find(Book.class, bookTitle);
+        
+        if(book != null) {
+            cart.remove(book);
+        }
+    } 
+    
+   /* @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
     
     public void addBook(String username, String bookTitle) {
@@ -45,5 +71,5 @@ public class CartService {
         if(book != null && user != null) {
             user.removeBookToCart(book);
         }
-    }
+    }*/
 }

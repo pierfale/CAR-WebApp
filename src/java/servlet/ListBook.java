@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import service.CartService;
 import service.ListBookService;
 import service.LoginService;
 
@@ -21,19 +22,17 @@ import service.LoginService;
  * @author Pierre
  */
 @WebServlet(name = "ListBook", urlPatterns = {"/ListBook"})
-public class ListBook extends HttpServlet {
+public class ListBook extends AbstractSessionServlet {
     
     @EJB
     private ListBookService  listBookService;
-    
-    @EJB
-    private LoginService loginService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("title", "Book List");
-
-        User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
-        request.setAttribute("user", user);
+        
+        request.setAttribute("cartSize", getCartService().getItems().size());  
+        
+        initializeRequest(request);
         
         String search = request.getParameter("search");
         

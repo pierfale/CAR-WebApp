@@ -24,10 +24,7 @@ import service.LoginService;
  * @author Pierre
  */
 @WebServlet(name = "AddCart", urlPatterns = {"/AddCart"})
-public class AddCart extends HttpServlet {
-
-    @EJB
-    private CartService  cartService;
+public class AddCart extends AbstractSessionServlet {
     
     @EJB
     private LoginService loginService;
@@ -47,7 +44,7 @@ public class AddCart extends HttpServlet {
         String title = request.getParameter("title");
         
         if(user != null && title != null) {
-            cartService.addBook(user.getUsername(), title);
+            getCartService().addBook(title);
         }
         response.sendRedirect("ListBook");
     }

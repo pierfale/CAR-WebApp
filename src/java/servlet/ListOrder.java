@@ -22,11 +22,8 @@ import service.OrderService;
  * @author Pierre
  */
 @WebServlet(name = "ListOrder", urlPatterns = {"/ListOrder"})
-public class ListOrder extends HttpServlet {
+public class ListOrder extends AbstractSessionServlet {
 
-    @EJB
-    private LoginService loginService;
-    
     @EJB
     private OrderService orderService;
     /**
@@ -43,13 +40,12 @@ public class ListOrder extends HttpServlet {
         
         request.setAttribute("title", "List Order");
 
-        User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
-        request.setAttribute("user", user);
+        initializeRequest(request);
         
-        if(user == null)
+        if(getUser() == null)
             this.getServletContext().getRequestDispatcher("/error/UnauthorizedAccess.jsp").forward(request, response);
         else {
-            request.setAttribute("listOrder", orderService.getPrevious(user.getUsername()));
+            request.setAttribute("listOrder", orderService.getPrevious(getUser().getUsername()));
             this.getServletContext().getRequestDispatcher("/ListOrder.jsp").forward(request, response);
         }
     }

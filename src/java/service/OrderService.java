@@ -28,13 +28,12 @@ public class OrderService implements Serializable {
     @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
     
-    public void execute(String username) throws UnableToOrderException {
+    public void execute(String username, List<Book> cart) throws UnableToOrderException {
         User user = (User)entityManager.find(User.class, username);
         
         if(user != null) {
-            Order order = new Order(user, new ArrayList<Book>(user.getCart()));
+            Order order = new Order(user, cart);
             entityManager.persist(order);
-            user.clearCart();
         }
         else 
             throw new UnableToOrderException("User not found");

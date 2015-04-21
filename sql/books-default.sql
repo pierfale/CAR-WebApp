@@ -21,6 +21,6 @@ INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE)
 INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE) 
 	VALUES ('The Lord of the Rings: The Fellowship of the Ring', 'J. R. R. Tolkien', 6.8);
 INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE) 
-	VALUES ('he Lord of the Rings: The Two Towers', 'J. R. R. Tolkien', 8.2);
+	VALUES ('The Lord of the Rings: The Two Towers', 'J. R. R. Tolkien', 8.2);
 INSERT INTO APP.BOOKS (TITLE, AUTHOR, PRICE) 
 	VALUES ('The Lord of the Rings: The Return of the King', 'J. R. R. Tolkien', 6.8);

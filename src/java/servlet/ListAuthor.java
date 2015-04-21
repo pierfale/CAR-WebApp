@@ -22,13 +22,10 @@ import service.LoginService;
  * @author Pierre
  */
 @WebServlet(name = "ListAuthor", urlPatterns = {"/ListAuthor"})
-public class ListAuthor extends HttpServlet {
+public class ListAuthor extends AbstractSessionServlet {
     
     @EJB
     private ListBookService  listBookService;
-    
-    @EJB
-    private LoginService loginService;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,8 +40,7 @@ public class ListAuthor extends HttpServlet {
             throws ServletException, IOException {
                 request.setAttribute("title", "Book List");
 
-        User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
-        request.setAttribute("user", user);
+        initializeRequest(request);
         
         String search = request.getParameter("search");
         

@@ -22,13 +22,8 @@ import service.LoginService;
  * @author Pierre
  */
 @WebServlet(name = "ListCart", urlPatterns = {"/ListCart"})
-public class ListCart extends HttpServlet {
+public class ListCart extends AbstractSessionServlet {
 
-    @EJB
-    private CartService  cartService;
-    
-    @EJB
-    private LoginService loginService;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,16 +37,13 @@ public class ListCart extends HttpServlet {
             throws ServletException, IOException {
         request.setAttribute("title", "Cart");
 
+        initializeRequest(request);
         
-        
-        User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
-        request.setAttribute("user", user);
-        
-        if(user == null)
+        if(getUser() == null)
             this.getServletContext().getRequestDispatcher("/error/UnauthorizedAccess.jsp").forward(request, response);
         else {
 
-            request.setAttribute("cart", cartService.getItems(user.getUsername()));
+            request.setAttribute("cart", getCartService().getItems());
 
             this.getServletContext().getRequestDispatcher("/ListCart.jsp").forward(request, response);
         }

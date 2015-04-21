@@ -21,13 +21,13 @@ import service.LoginService;
  * @author Pierre
  */
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+public class Login extends AbstractSessionServlet {
     
     @EJB
     private LoginService loginService;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY) != null) {
+        if(getUser() != null) {
             this.getServletContext().getRequestDispatcher("/error/UnauthorizedAccess.jsp").forward(request, response);
         }
         else {
