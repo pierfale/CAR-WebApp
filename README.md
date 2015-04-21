@@ -8,12 +8,16 @@ Gaëtan DEFLANDRE
 Cette application est un exemple de site d'e-commerce destinée à la vente de livre.
 Il utilise le framework Java Entreprise et notament la *Java Persistence API*
 
-Cette application propose divertse fonctionnalité : Inscription d'utilisateur, gestion de session utilisateur, recherche de livre, tri par auteur, etc...
+Cette application propose diverse fonctionnalitées : 
+* Inscription d'utilisateur
+* Gestion de panier
+* Recherche de livre
+* Tri par auteur
 ## Architecture
 Nous avons séparé notre application en différentes couches :
-La premiere, contenu dans le package *entity*, contient tous les éléments destinés à être persistant. Ceux-ci sont représenté par des *Entity Bean* de la *Java Persistence API*
-La seconde contient tout les services dans le package *service*. Chaque service est une *Session Bean* (*Stateful* ou *Stateless*) de la *Java Persistence API*
-La troisieme couche, contenu dans le package *servlet*, regroupe l'ensembles des servlets http. Ces derniers fonctionne avec des fichiers JSP en guise de template HTML.
+* La premiere, contenu dans le package *entity*, contient tous les éléments destinés à être persistant. Ceux-ci sont représenté par des *Entity Bean* de la *Java Persistence API*
+* La seconde contient tout les services dans le package *service*. Chaque service est une *Session Bean* (*Stateful* ou *Stateless*) de la *Java Persistence API*
+* La troisieme couche, contenu dans le package *servlet*, regroupe l'ensembles des servlets http. Ces derniers fonctionne avec des fichiers JSP en guise de template HTML.
 
 Il y a également un package *exeception* qui regroupe les exceptions spécifique à l'application.
 
