@@ -22,8 +22,6 @@ import service.LoginService;
 @WebServlet(name = "AddCart", urlPatterns = {"/AddCart"})
 public class AddCart extends AbstractSessionServlet {
     
-    @EJB
-    private LoginService loginService;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

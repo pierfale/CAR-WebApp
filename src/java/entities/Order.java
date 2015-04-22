@@ -17,7 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Order JPA entity
+ * Order JPA entity. 
+ * Each order have ane unique generated key, the user which the order belongs and the list of books of the order.
  * @author Pierre
  */
 @Entity
