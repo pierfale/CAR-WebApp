@@ -12,7 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- *
+ * JPA stateless session bean service which allow to persist a book
  * @author Pierre
  */
 @Stateless
@@ -21,6 +21,10 @@ public class AddBookService implements Serializable {
     @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
     
+    /**
+     * Add a book in the JPA system
+     * @param book to add
+     */
     public void add(Book book) {
         entityManager.persist(book);
     }

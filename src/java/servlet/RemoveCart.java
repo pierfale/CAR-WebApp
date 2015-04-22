@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Remove item of the cart which parmeter "title" is the title of book to remove
  * @author Pierre
  */
 @WebServlet(name = "RemoveCart", urlPatterns = {"/RemoveCart"})

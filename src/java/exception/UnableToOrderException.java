@@ -6,7 +6,7 @@
 package exception;
 
 /**
- *
+ * Exception throw when there is an issue in the order system
  * @author Pierre
  */
 public class UnableToOrderException extends RuntimeException {

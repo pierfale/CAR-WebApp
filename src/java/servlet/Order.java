@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.OrderService;
 
 /**
- *
+ * Finalize order. move cart item into new order.
  * @author Pierre
  */
 @WebServlet(name = "Order", urlPatterns = {"/Order"})

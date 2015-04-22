@@ -15,7 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import service.LoginService;
 
 /**
- *
+ * Add a Book into the cart.
+ * Get parameter named "title" which correspond to a book title in the JPA system and add it into user cart.
  * @author Pierre
  */
 @WebServlet(name = "AddCart", urlPatterns = {"/AddCart"})
@@ -35,7 +36,7 @@ public class AddCart extends AbstractSessionServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        User user = loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
+        User user = getUser();
         String title = request.getParameter("title");
         
         if(user != null && title != null) {

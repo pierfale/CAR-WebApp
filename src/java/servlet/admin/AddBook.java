@@ -21,7 +21,7 @@ import service.ListBookService;
 import service.LoginService;
 
 /**
- *
+ * Add new book into JPA system. check if user has admin status, otherwise redirect to an error page
  * @author Pierre
  */
 @WebServlet(name = "AddBook", urlPatterns = {"/AddBook"})

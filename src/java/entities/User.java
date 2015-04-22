@@ -19,17 +19,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- *
+ * User JPA Entity
+ * An user is identified by his username. 
+ * It's also have a password (encrypted with SHA-1), a rank (USER or ADMIN) and the list of it orders
  * @author Pierre
  */
 @Entity
 @Table(name="USERS")
 public class User implements Serializable {
+    
     public enum Rank {
         USER,
         ADMIN
     }
-    
 
     private String username;
     private String password;
@@ -104,6 +106,11 @@ public class User implements Serializable {
         return result;
     }
 
+    /**
+     * Return true if the password of current user equals the password in parameter, false otherwise
+     * @param password
+     * @return 
+     */
     public boolean checkPassword(String password) {
         try {
             return hash(password).equals(this.password);

@@ -15,7 +15,7 @@ import service.CartService;
 import service.LoginService;
 
 /**
- *
+ * Abstrat servlet which create session attribute for manage user and cart
  * @author Pierre
  */
 public class AbstractSessionServlet extends HttpServlet {
@@ -25,11 +25,19 @@ public class AbstractSessionServlet extends HttpServlet {
     @EJB
     private LoginService loginService;
     
+    /**
+     * fill attribute user and cartSize
+     * @param request 
+     */
     public void initializeRequest(HttpServletRequest request) {
         request.setAttribute("user", getUser());
         request.setAttribute("cartSize", getCartService().getItems().size());
     }
     
+    /**
+     * Return current session cart service or null otherwise
+     * @return 
+     */
     public CartService getCartService() {
         CartService cartService;
         cartService = (CartService)getServletContext().getAttribute(CART_SESSION_KEY); // get cart session
@@ -49,6 +57,10 @@ public class AbstractSessionServlet extends HttpServlet {
         return cartService;
     }
     
+    /**
+     * return the current session user
+     * @return 
+     */
     public User getUser() {
         return loginService.get((String)getServletContext().getAttribute(LoginService.LOGIN_SESION_KEY));
     }

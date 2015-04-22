@@ -8,7 +8,7 @@ package exception;
 import javax.ejb.ApplicationException;
 
 /**
- *
+ * Exception throw when there is an issue in the user sign-up system
  * @author Pierre
  */
 @ApplicationException

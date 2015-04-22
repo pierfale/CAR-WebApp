@@ -19,6 +19,10 @@ import javax.persistence.Query;
  * @author Pierre
  */
 
+/**
+ *  JPA stateless session bean service which allow user to login
+ * @author Pierre
+ */
 @Stateless
 public class LoginService implements Serializable {
     
@@ -31,6 +35,12 @@ public class LoginService implements Serializable {
         this.entityManager = entityManager;
     }
     
+    /**
+     * Check if username exist and password is correct
+     * @param username of user account
+     * @param password of user account
+     * @throws UnableToLoginException if information are not correct
+     */
     public void login(String username, String password) throws UnableToLoginException {
         Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username");
         query.setParameter("username", username);
@@ -46,6 +56,11 @@ public class LoginService implements Serializable {
             throw new UnableToLoginException("Inccorect password");
     }
     
+    /**
+     * get User associated to username or null if no account found
+     * @param username
+     * @return 
+     */
     public User get(String username) {
         return username != null ? entityManager.find(User.class, username) : null;
     }

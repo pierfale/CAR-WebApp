@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.LoginService;
 
 /**
- *
+ * Destroy user session
  * @author Pierre
  */
 @WebServlet(name = "Logout", urlPatterns = {"/Logout"})

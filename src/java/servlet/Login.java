@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.LoginService;
 
 /**
- *
+ * Display login form. If there are parameter "username" and "password", try login the user
  * @author Pierre
  */
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
@@ -70,7 +70,7 @@ public class Login extends AbstractSessionServlet {
             if(username != null && !username.equals("") && password != null && !password.equals("")) {
                 try {
                     loginService.login(username, password);
-                    getServletContext().setAttribute(loginService.LOGIN_SESION_KEY, username);
+                    getServletContext().setAttribute(LoginService.LOGIN_SESION_KEY, username);
                     response.sendRedirect("ListBook");
                 }
                 catch(UnableToLoginException e) {
