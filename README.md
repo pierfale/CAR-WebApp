@@ -4,68 +4,89 @@ Pierre FALEZ
 Gaëtan DEFLANDRE  
 - - - - - - - - - - - 
 
-## Introduction
-Cette application est un exemple de site d'e-commerce destinée à la vente de livre.
-Il utilise le framework Java Entreprise et notament la *Java Persistence API*
 
-Cette application propose diverse fonctionnalitées : 
+## Introduction
+
+Cette application est un exemple de site d'e-commerce destinée à la
+vente de livres.  Elle utilise le framework Java Entreprise et
+notamment la *Java Persistence API*
+
+Cette application propose diverses fonctionnalités : 
 * Inscription d'utilisateur
 * Gestion de panier
 * Recherche de livre
 * Tri par auteur
 
+
 ## Architecture
 
 Nous avons séparé notre application en différentes couches :
-* La premiere, contenu dans le package *entity*, contient tous les éléments destinés à être persistant. Ceux-ci sont représenté par des *Entity Bean* de la *Java Persistence API*
-* La seconde contient tout les services dans le package *service*. Chaque service est une *Session Bean* (*Stateful* ou *Stateless*) de la *Java Persistence API*
-* La troisieme couche, contenu dans le package *servlet*, regroupe l'ensembles des servlets http. Ces derniers fonctionne avec des fichiers JSP en guise de template HTML.
 
-Il y a également un package *exeception* qui regroupe les exceptions spécifique à l'application.
+* La première, contenu dans le package *entity*, contient tous les
+  éléments destinés à être persistant. Ceux-ci sont représentés par
+  des *Entity Bean* de la *Java Persistence API*
+  
+* La seconde contient tous les services dans le package
+  *service*. Chaque service est une *Session Bean* (*Stateful* ou
+  *Stateless*) de la *Java Persistence API*
+  
+* La troisième couche, contenue dans le package *servlet*, regroupe
+  l'ensemble des servlets http. Ces derniers fonctionnent avec des
+  fichiers JSP en guise de template HTML.
+
+Il y a également un package *exeception* qui regroupe les exceptions
+spécifiques à l'application.
+
 
 **Liste des throw**
 
 service.LoginService:39, UnableToLoginException
-Exception levé lorsque le nom de l'utilisateur est introuvable.
+Exception levée lorsque le nom de l'utilisateur est introuvable.
 
 service.LoginService:43, UnableToLoginException
-Exception levé lorsque le mot de passe entré ne correspond pas au mot de passe associé à l'utilisateur.
+Exception levée lorsque le mot de passe entré ne correspond pas
+au mot de passe associé à l'utilisateur.
 
 service.OrderService:39, UnableToOrderException
-Exception levé lorsque l'utilisateur à traiter est introuvable.
+Exception levée lorsque l'utilisateur à traiter est introuvable.
 
 entity.User:50, UnableToCreateUserException
-Exception levé lorsque qu'il y a un problème d'encodage des caracteres
+Exception levée lorsqu'il y a un problème d'encodage des caractères.
 
 entity.User:52, UnableToCreateUserException
-Exception levé lorsque qu'il y a un problème avec l'encryptage du mot de passe
+Exception levée lorsqu'il y a un problème avec l'encryptage
+du mot de passe.
+
 
 **Liste des try/catch**
 
 servlet.AbstractSessionServlet:38, NamingException
-Vérifie la récupération de l'EJB via lookup
+Vérifie la récupération de l'EJB via lookup.
 
 servlet.Login:73, UnableToLoginException
-Vérifie que le login à bien fonctionné, et affiche un message à l'utilisateur dans le cas contraire
+Vérifie que le login a bien fonctionné, et affiche un message
+à l'utilisateur dans le cas contraire.
 
 servlet.Order:52, UnableToOrderException
-Vérifie que le traitement de la commande à bien fonctionné, et affiche un message à l'utilisateur dans le cas contraire
+Vérifie que le traitement de la commande a bien fonctionné,
+et affiche un message à l'utilisateur dans le cas contraire.
 
 servlet.SignUp:68, UnableToCreateUserException
-Vérifie que l'inscription à bien fonctionné, et affiche un message à l'utilisateur dans le cas contraire
+Vérifie que l'inscription à bien fonctionné, et affiche un
+message à l'utilisateur dans le cas contraire.
 
 entity.User:45, UnsupportedEncodingException, NoSuchAlgorithmException
-Récupérations des erreurs lié à l'encryptage du mot de passe.
+Récupérations des erreurs liées à l'encryptage du mot de passe.
 
 entity.User:109, UnsupportedEncodingException, NoSuchAlgorithmException
-Récupérations des erreurs lié à l'encryptage du mot de passe.
+Récupérations des erreurs liées à l'encryptage du mot de passe.
 
 service.LoginService:35, NoResultException
-Vérifie que l'utilisateur existe dans la base de donnée
+Vérifie que l'utilisateur existe dans la base de données.
 
 ## Code samples
 
-service.loginService:30 Verification du compte utilisateur
+service.loginService:30 Vérification du compte utilisateur
 ```
 public void login(String username, String password) throws UnableToLoginException {
 	Query query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username");

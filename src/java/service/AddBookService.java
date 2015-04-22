@@ -20,6 +20,14 @@ public class AddBookService implements Serializable {
 
     @PersistenceContext(unitName="BookSellPU")
     private EntityManager entityManager;
+
+    /**
+     * Fix the EntityManager instance with the new one in parameter.
+     * @param entityManager the new instance.
+     */
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
     
     /**
      * Add a book in the JPA system

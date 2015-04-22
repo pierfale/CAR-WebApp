@@ -69,8 +69,15 @@ public class User implements Serializable {
         return this.password;
     } 
     
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String password) throws UnableToCreateUserException {
+             
+        try {
+            this.password = hash(password);
+        } catch (UnsupportedEncodingException ex) {
+            throw new UnableToCreateUserException("Unsupported Encoding");
+        } catch (NoSuchAlgorithmException ex) {
+            throw new UnableToCreateUserException("Unsupported Hash");
+        }
     }
     
     @Column(name="RANK")
@@ -92,14 +99,16 @@ public class User implements Serializable {
     }
 
     private String hash(String str) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-            MessageDigest crypt = MessageDigest.getInstance("SHA-1");
-            crypt.reset();
-            crypt.update(str.getBytes("UTF-8"));
+        
+        MessageDigest crypt = MessageDigest.getInstance("SHA-1");
+                
+        crypt.reset();
+        crypt.update(str.getBytes("UTF-8"));
 
-            Formatter formatter = new Formatter();
-            for (byte b : crypt.digest()) { // Transform each byte in hexa format string
-                    formatter.format("%02x", b);
-            }
+        Formatter formatter = new Formatter();
+        for (byte b : crypt.digest()) { // Transform each byte in hexa format string
+                formatter.format("%02x", b);
+        }
         String result = formatter.toString();
         formatter.close();
 
