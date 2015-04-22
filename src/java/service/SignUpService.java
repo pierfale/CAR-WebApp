@@ -11,10 +11,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- *
+ *  JPA stateless session bean service which allow user to create new account
  * @author Pierre
  */
-
 @Stateless
 public class SignUpService {
     
@@ -25,6 +24,10 @@ public class SignUpService {
         this.entityManager = entityManager;
     }
     
+    /**
+     * Create in the jpa system the new user
+     * @param user 
+     */
     public void create(User user) {
         entityManager.persist(user);
     }

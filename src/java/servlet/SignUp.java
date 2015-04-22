@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.SignUpService;
 
 /**
- *
+ * Display sign up form. If there are parameter "username" and "password", try create new user
  * @author Pierre
  */
 @WebServlet(name = "SignUp", urlPatterns = {"/SignUp"})

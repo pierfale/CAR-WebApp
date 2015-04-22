@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- *
+ * Display the content of the cart. If user is unlogged, this servlet redirect to an error page
  * @author Pierre
  */
 @WebServlet(name = "ListCart", urlPatterns = {"/ListCart"})

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.ListBookService;
 
 /**
- *
+ * Display list of all book order by title. if parameter "search" is specified, list only book which contains the search content in title
  * @author Pierre
  */
 @WebServlet(name = "ListBook", urlPatterns = {"/ListBook"})

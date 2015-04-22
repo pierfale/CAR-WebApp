@@ -10,11 +10,12 @@ import java.util.Collection;
 import java.util.Objects;
 import javax.persistence.*;
 
+
 /**
- *
+ * Book JPA Entity. A book contains a title (his primary key), an author and a price
+ * It also have the list of order which contains itself
  * @author Pierre
  */
-
 @Entity
 @Table(name="BOOKS")
 public class Book implements Serializable {
@@ -71,12 +72,14 @@ public class Book implements Serializable {
         this.ordersContainer = ordersContainer;
     }
     
+    /**
+     * Two book are equals when it's title are equals
+     * @param o, an Object
+     * @return true if the book are the same
+     */
     @Override
     public boolean equals(Object o) {
-        return o instanceof Book && 
-                ((Book)o).getTitle().equals(this.title) &&
-                ((Book)o).getAuthor().equals(this.author) &&
-                ((Book)o).getPrice() == this.price;
+        return o instanceof Book && ((Book)o).getTitle().equals(this.title);
     }
 
     @Override

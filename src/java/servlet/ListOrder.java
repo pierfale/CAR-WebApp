@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.OrderService;
 
 /**
- *
+ * List all the order of the user. if this user is unlogged, this servlet redirect to an error page
  * @author Pierre
  */
 @WebServlet(name = "ListOrder", urlPatterns = {"/ListOrder"})
