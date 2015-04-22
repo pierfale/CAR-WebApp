@@ -18,7 +18,7 @@
 
 <form method="POST" action="SignUp">
     <div class="form-group">
-        <label for="name">Login :</label>
+        <label for="name">Username :</label>
         <input class="form-control" id="name" name="username" />
     </div>
     
