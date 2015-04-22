@@ -28,7 +28,7 @@
         out.println("No book found.<br />");
     }
     else {
-        out.println("<table class=\"table table-striped\">");
+        out.println("<table class=\"table table-striped table-bordered\">");
         out.println("<tr><th>Title</th><th>Author</th><th>Price</th><th>Action</th></tr>");
         for(Book book : listBook) {
             out.println("<tr><td>"+book.getTitle()+"</td><td>"+book.getAuthor()+"</td><td>"+String.format("%.2f", book.getPrice())+"§</td><td>");

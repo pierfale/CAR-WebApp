@@ -26,6 +26,23 @@ public class CartService {
     private List<Book> cart = new ArrayList<Book>();
     
     /**
+     * Fix the EntityManager instance with the new one in parameter.
+     * @param entityManager the new instance.
+     */
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    /**
+     * Fix the cart with the new books list in parameter.
+     * @param cart the new books list
+     */
+    public void setCart(List<Book> cart) {
+        this.cart = cart;
+    }
+    
+    
+    /**
      * Add a the book which matches with the title in the cart
      * @param bookTitle title of a book in the JPA system
      */
@@ -38,7 +55,7 @@ public class CartService {
     }
     
     /**
-     * Rrtuen the content of the cart
+     * Return the content of the cart
      * @return list of book ine the cart
      */
     public Collection<Book> getItems() {

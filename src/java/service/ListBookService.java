@@ -24,6 +24,14 @@ public class ListBookService implements Serializable {
     private EntityManager entityManager;
     
     /**
+     * Fix the EntityManager instance with the new one in parameter.
+     * @param entityManager the new instance.
+     */
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+    
+    /**
      * Return the list of all book of the JPA system order by title 
      * @return list of book
      */

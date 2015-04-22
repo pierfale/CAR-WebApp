@@ -25,15 +25,15 @@
     }
     else {
         float total = 0.0f;
-        out.println("<table class=\"table table-striped\">");
+        out.println("<table class=\"table table-striped table-bordered\">");
         out.println("<tr><th>Title</th><th>Price</th><th>Action</th></tr>");
         for(Book book : listBook) {
             out.println("<tr><td>"+book.getTitle()+"</td><td>"+String.format("%.2f", book.getPrice())+"§</td><td> <a href=\"RemoveCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Remove</a></td></tr>");
             total += book.getPrice();
         }
+        out.println("<tr class=\"info\"><td>Total price</td><td>"+String.format("%.2f", total)+"§</td><td></td>");
         out.println("</table>");
-        out.println("Total price : "+String.format("%.2f", total)+"§<br />");
-        out.println("<a href=\"Order\">Validate</a>");
+        out.println("<a class=\"btn btn-primary\" href=\"Order\">Validate</a>");
     }
 %>
 
