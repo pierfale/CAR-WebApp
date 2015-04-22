@@ -55,7 +55,7 @@ public class OrderServiceTest {
         
         orderService.execute(username, cart);
         
-        // Verify if the persist method is call one time only
+        // Verify if the persist method is called one time only
         verify(entityManager, Mockito.times(1)).persist(Mockito.any());
     }
 

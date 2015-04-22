@@ -12,9 +12,15 @@
 
 <h2>Book List sort by author</h2>
 
-<form method="POST" action="ListBook">
-    Search a book : <input name="search" placeholder="book title" value="<%= request.getAttribute("search") %>"/> <input type="submit" value="Go" />
-</form>
+<p>
+    <form class="form-inline" method="POST" action="ListBook">
+        <div class="form-group">
+            <label>Search a book : </label>
+            <input class="form-control" name="search" placeholder="book title" value="<%= request.getAttribute("search") %>"/>
+        </div>
+        <input class="btn btn-default" type="submit" value="Go" />
+    </form>
+</p>
         
 <%
     List<Book> listBook = (List<Book>)request.getAttribute("listBook");
