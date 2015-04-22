@@ -46,8 +46,8 @@
                 <nav>
                     <ul class="nav secondary-nav">
                         <li class="dropdown">
-                        <li><a class="menu" href="ListBook">List of book</a></li>
-                        <li><a class="menu" href="ListAuthor">List of Author</a></li>
+                        <li><a class="menu" href="ListBook">List of books</a></li>
+                        <li><a class="menu" href="ListAuthor">List of authors</a></li>
                     </ul>
                 </nav>
                 
