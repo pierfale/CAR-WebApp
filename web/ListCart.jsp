@@ -10,7 +10,7 @@
 <%@page import="entities.Book"%>
 <%@include file="Header.jsp" %>
 
-<h1>Book Cart</h1>
+<h2>Book Cart</h2>
 
 <%
     String message = (String)request.getAttribute("message");
@@ -25,7 +25,7 @@
     }
     else {
         float total = 0.0f;
-        out.println("<table>");
+        out.println("<table class=\"table table-striped\">");
         out.println("<tr><th>Title</th><th>Price</th><th>Action</th></tr>");
         for(Book book : listBook) {
             out.println("<tr><td>"+book.getTitle()+"</td><td>"+String.format("%.2f", book.getPrice())+"§</td><td> <a href=\"RemoveCart?title="+URLEncoder.encode(book.getTitle(), "UTF-8")+"\">Remove</a></td></tr>");

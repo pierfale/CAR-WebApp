@@ -11,7 +11,7 @@
 
 <%@include file="Header.jsp" %>
 
-<h1>Order List</h1>
+<h2>Order List</h2>
 
         
 <%

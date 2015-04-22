@@ -10,7 +10,7 @@
 
 <%@include file="Header.jsp" %>
 
-<h1>Book List</h1>
+<h2>Book List sort by author</h2>
 
 <form method="POST" action="ListBook">
     Search a book : <input name="search" placeholder="book title" value="<%= request.getAttribute("search") %>"/> <input type="submit" value="Go" />

@@ -6,6 +6,6 @@
 
 <%@include file="Header.jsp" %>
 
-<h1> Success ! <%= request.getAttribute("nbBook") %> book(s) ordered </h1><br />
+<p class="bg-success"> Success ! <%= request.getAttribute("nbBook") %> book(s) ordered </p><br />
 
 <%@include file="Footer.jsp" %>

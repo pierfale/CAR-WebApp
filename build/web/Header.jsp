@@ -10,34 +10,47 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><%= request.getAttribute("title") != null ? request.getAttribute("title") : "Book sell" %></title>  
+        <title><%= request.getAttribute("title") != null ? request.getAttribute("title") : "Book sell" %></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     </head>
     <body>
-        <header>
-            <h1>Book Sell</h1>
-        </header>
         
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">.
+                <header>
+                    <h1>Book Sell</h1>
+                    <hr>
+                </header>
 
-        <%
-           User user = (User)request.getAttribute("user");
-           
-           if(user != null) {
-               out.println("Welcome "+user.getUsername()+" | <a href=\"Logout\">Logout</a>");
-               if(user.getRank() == User.Rank.ADMIN)
-                   out.println(" (<a href=\"AddBook\">Admin panel</a>)<br />");
-               else
-                   out.println("<br />"); 
-               
-               out.println("<a href=\"ListCart\">Cart ("+request.getAttribute("cartSize")+" item(s))</a> <a href=\"ListOrder\">Order history</a><br />");
-           }
-           else {
-               out.println("<a href=\"Login\">Login</a> | <a href=\"SignUp\">SignUp</a><br />");
-           }
-              
-        %>   
-        
-        <nav>
-            <a href="ListBook">List of book</a>
-            <a href="ListAuthor">List of Author</a>
-        </nav>
+
+                <%
+                   User user = (User)request.getAttribute("user");
+
+                   if(user != null) {
+                       out.println("Welcome "+user.getUsername()+" <a class=\"btn btn-danger btn-xs\" href=\"Logout\">Logout</a>");
+                       if(user.getRank() == User.Rank.ADMIN)
+                           out.println("<a class=\"btn btn-warning btn-xs\" href=\"AddBook\">Admin panel</a><br />");
+                       else
+                           out.println("<br />"); 
+
+                       out.println("<a class=\"btn btn-default btn-xs\" href=\"ListCart\">Cart ("+request.getAttribute("cartSize")+" item(s))</a> <a class=\"btn btn-default btn-xs\" href=\"ListOrder\">Order history</a><br />");
+                   }
+                   else {
+                       out.println("<a class=\"btn btn-default btn-xs\" href=\"Login\">Login</a> <a class=\"btn btn-default btn-xs\" href=\"SignUp\">SignUp</a><br />");
+                   }
+
+                %>   
+
+                <hr>
+                
+                <nav>
+                    <ul class="nav secondary-nav">
+                        <li class="dropdown">
+                        <li><a class="menu" href="ListBook">List of book</a></li>
+                        <li><a class="menu" href="ListAuthor">List of Author</a></li>
+                    </ul>
+                </nav>
+                
+                <hr>
+                
         

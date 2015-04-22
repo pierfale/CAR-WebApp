@@ -6,7 +6,7 @@
 
 <%@include file="Header.jsp" %>
 
-<h1>Login</h1>
+<h2>Login</h2>
 
 <%
     String message = (String)request.getAttribute("message");
@@ -17,9 +17,19 @@
 %>
 
 <form method="POST" action="Login">
-    Username : <input name="username" /><br />
-    Password : <input type="password" name="password" /><br />
-    <input type="submit" />
+    
+    <div class="form-group">
+        <label for="name">Username :</label>
+        <input class="form-control" id="name" name="username" />
+    </div>
+    
+    <div class="form-group">
+        <label for="pass">Password :</label>
+        <input class="form-control" id="pass" type="password" name="password" />
+    </div>
+    
+    <input class="btn btn-default" type="submit" />
+    
 </form>
 
 <%@include file="Footer.jsp" %>

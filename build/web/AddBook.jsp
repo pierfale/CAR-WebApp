@@ -4,10 +4,26 @@
     Author     : Pierre
 --%>
 
+<%@include file="Header.jsp" %>
+
+<h2>Admin panel</h2>
 
 <form method="POST" action="AddBook">
-    Title : <input name="title" /><br />
-    Author : <input name="author" /><br />
-    Price : <input name="price" /><br />
-    <input type="submit" /><br />
+    
+    <div class="form-group">
+        <label>Title : </label>
+        <input class="form-control" name="title" />
+    </div>
+    
+    <div class="form-group">
+        <label>Author : </label>
+        <input class="form-control" name="author" />
+    </div>
+    
+    <div class="form-group">
+        <label>Price : </label>
+        <input class="form-control" name="price" />
+    </div>
+    
+    <input class="btn btn-default" type="submit" />
 </form>
